@@ -1,0 +1,178 @@
+[
+  {
+    "term": "உங்கள்",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 0.92,
+        "source_end": 1.23,
+        "precision": "word",
+        "segment_id": "segment-0000",
+        "context": "என் கதை உங்கள் பயணம்",
+        "output_start": 0.92,
+        "output_end": 1.23,
+        "clip": 0
+      }
+    ]
+  },
+  {
+    "term": "பயணம்",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 1.29,
+        "source_end": 1.6,
+        "precision": "word",
+        "segment_id": "segment-0000",
+        "context": "என் கதை உங்கள் பயணம்",
+        "output_start": 1.29,
+        "output_end": 1.6,
+        "clip": 0
+      }
+    ]
+  },
+  {
+    "term": "கற்ற",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 2.55,
+        "source_end": 2.86,
+        "precision": "word",
+        "segment_id": "segment-0001",
+        "context": "நான் கற்ற ஒரு விஷயம்",
+        "output_start": 2.55,
+        "output_end": 2.86,
+        "clip": 0
+      }
+    ]
+  },
+  {
+    "term": "விஷயம்",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 3.29,
+        "source_end": 3.6,
+        "precision": "word",
+        "segment_id": "segment-0001",
+        "context": "நான் கற்ற ஒரு விஷயம்",
+        "output_start": 3.29,
+        "output_end": 3.6,
+        "clip": 0
+      }
+    ]
+  },
+  {
+    "term": "புதிய",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 4.18,
+        "source_end": 4.49,
+        "precision": "word",
+        "segment_id": "segment-0002",
+        "context": "புதிய technology ஒரு அனுபவம்",
+        "output_start": 4.18,
+        "output_end": 4.49,
+        "clip": 0
+      }
+    ]
+  },
+  {
+    "term": "technology",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 4.55,
+        "source_end": 4.86,
+        "precision": "word",
+        "segment_id": "segment-0002",
+        "context": "புதிய technology ஒரு அனுபவம்",
+        "output_start": 4.55,
+        "output_end": 4.86,
+        "clip": 0
+      }
+    ]
+  },
+  {
+    "term": "அனுபவம்",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 5.29,
+        "source_end": 5.6,
+        "precision": "word",
+        "segment_id": "segment-0002",
+        "context": "புதிய technology ஒரு அனுபவம்",
+        "output_start": 5.29,
+        "output_end": 5.6,
+        "clip": 0
+      }
+    ]
+  },
+  {
+    "term": "சின்ன",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 6.18,
+        "source_end": 6.49,
+        "precision": "word",
+        "segment_id": "segment-0003",
+        "context": "சின்ன மாற்றம் பெரிய வளர்ச்சி",
+        "output_start": 6.18,
+        "output_end": 6.49,
+        "clip": 0
+      }
+    ]
+  },
+  {
+    "term": "மாற்றம்",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 6.55,
+        "source_end": 6.86,
+        "precision": "word",
+        "segment_id": "segment-0003",
+        "context": "சின்ன மாற்றம் பெரிய வளர்ச்சி",
+        "output_start": 6.55,
+        "output_end": 6.86,
+        "clip": 0
+      }
+    ]
+  },
+  {
+    "term": "பெரிய",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 6.92,
+        "source_end": 7.23,
+        "precision": "word",
+        "segment_id": "segment-0003",
+        "context": "சின்ன மாற்றம் பெரிய வளர்ச்சி",
+        "output_start": 6.92,
+        "output_end": 7.23,
+        "clip": 0
+      }
+    ]
+  },
+  {
+    "term": "வளர்ச்சி",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 7.29,
+        "source_end": 7.6,
+        "precision": "word",
+        "segment_id": "segment-0003",
+        "context": "சின்ன மாற்றம் பெரிய வளர்ச்சி",
+        "output_start": 7.29,
+        "output_end": 7.6,
+        "clip": 0
+      }
+    ]
+  }
+]

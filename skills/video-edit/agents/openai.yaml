@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Edit Studio"
+  short_description: "Tamil personal-brand videos with captions, motion and outro"
+  default_prompt: "Use $video-edit on sample-video.mp4 to edit an engaging personal-brand reel with Tamil captions, relevant B-roll, signature motion, a reusable HTML editor, insta-follow-2.mp4 outro and an honest token-usage report."

@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "reviewed": true,
+  "visuals_authored": true,
+  "title": "Your story. Your signature. / Template preview",
+  "source_sha256": "210f568d8b89f302907c4ca0c3745c57da23d13409c64698cc669ef53256a4aa",
+  "fps": 30,
+  "top_percent": 48,
+  "accent": "#C8F36B",
+  "creator": "@ducky.logs",
+  "clips": [
+    {
+      "start": 0,
+      "end": 8.0,
+      "reason": "Full source retained until editorial review."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "story",
+      "start": 0,
+      "end": 2,
+      "title": "Your story.",
+      "subtitle": "A signature worth remembering.",
+      "preset": "quote",
+      "labels": [
+        "Stories. Experiences. Technology."
+      ],
+      "layout": "split"
+    },
+    {
+      "id": "evidence",
+      "start": 2,
+      "end": 4,
+      "title": "Show the moment.",
+      "preset": "browser",
+      "labels": [
+        "Your real workflow",
+        "A meaningful action",
+        "A visible result"
+      ],
+      "layout": "broll",
+      "broll": "../about-this-page/about-this-page-preview.mp4",
+      "broll_in": 4,
+      "credit": {
+        "title": "Existing workspace animation / template insert",
+        "source_url": "user-provided",
+        "license": "user-provided"
+      }
+    },
+    {
+      "id": "technology",
+      "start": 4,
+      "end": 6,
+      "title": "Ideas in motion.",
+      "subtitle": "Built around your words.",
+      "preset": "browser",
+      "labels": [
+        "Input",
+        "Connect the idea",
+        "Show the change",
+        "Share what you learned"
+      ],
+      "layout": "split"
+    },
+    {
+      "id": "insight",
+      "start": 6,
+      "end": 8,
+      "title": "Make it personal.",
+      "subtitle": "Your voice leads the edit.",
+      "preset": "timeline",
+      "labels": [
+        "The moment",
+        "What changed",
+        "What I learned"
+      ],
+      "layout": "motion"
+    }
+  ],
+  "sound": [
+    {
+      "at": 4,
+      "type": "click",
+      "gain": 0.12
+    },
+    {
+      "at": 6,
+      "type": "whoosh",
+      "gain": 0.1
+    }
+  ],
+  "editorial_notes": "Template demonstration using authored Tamil fixture captions, a generated camera slot and an existing local animation. Not a transcription or an edited personal story.",
+  "brand": {
+    "version": 1,
+    "name": "Ducky / Fieldnotes",
+    "creator": "@ducky.logs",
+    "accent": "#C8F36B",
+    "top_percent": 48,
+    "default_layout": "camera",
+    "language": "ta",
+    "asr_model": "small",
+    "caption_style": {
+      "fontSize": 62,
+      "x": 0.46,
+      "y": 0.79,
+      "maxWidth": 0.78,
+      "theme": "highlight",
+      "textColor": "#FFFFFF",
+      "backgroundColor": "#101714",
+      "backgroundOpacity": 0.88
+    },
+    "sfx_volume": 0.24,
+    "music_volume": 0.025,
+    "keyboard_sound": false,
+    "motion_intensity": 0.8,
+    "outro": {
+      "enabled": true,
+      "file": "insta-follow-2.mp4"
+    }
+  },
+  "caption_style": {
+    "fontSize": 62,
+    "x": 0.46,
+    "y": 0.79,
+    "maxWidth": 0.78,
+    "theme": "highlight",
+    "textColor": "#FFFFFF",
+    "backgroundColor": "#101714",
+    "backgroundOpacity": 0.88
+  }
+}

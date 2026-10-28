@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Motion film</title>
+<style>/* EMBED_FONT */
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#fff}canvas{display:block;width:100%;height:100%;object-fit:contain}</style></head>
+<body><canvas id="film" width="1920" height="1080" role="img" aria-label="Deterministic motion film"></canvas>
+<script id="film-config" type="application/json">{"title":"A mark becomes motion","duration":15,"bpm":120,"accent":"#D76A4E","background":"#ffffff","ink":"#171c22","isDemo":true,"riser":false}</script>
+<script>
+'use strict';
+const FILM=JSON.parse(document.getElementById('film-config').textContent),canvas=document.getElementById('film'),ctx=canvas.getContext('2d',{alpha:false});
+const W=1920,H=1080,clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v)),mix=(a,b,p)=>a+(b-a)*p;
+function spring(t,frequency=14,damping=.82){if(t<=0)return 0;if(damping>=1)return 1-(1+frequency*t)*Math.exp(-frequency*t);const w=frequency*Math.sqrt(1-damping*damping);return 1-Math.exp(-damping*frequency*t)*(Math.cos(w*t)+damping*frequency/w*Math.sin(w*t))}
+function springVelocity(t,frequency=14,damping=.82){if(t<=0)return 0;if(damping>=1)return frequency*frequency*t*Math.exp(-frequency*t);const w=frequency*Math.sqrt(1-damping*damping);return frequency*frequency/w*Math.exp(-damping*frequency*t)*Math.sin(w*t)}
+const expo=t=>(1-Math.exp(-7*clamp(t)))/(1-Math.exp(-7));
+function roundBox(x,y,w,h,r,fill){ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fillStyle=fill;ctx.fill()}
+function type(text,x,y,size,color=FILM.ink){ctx.font=`800 ${size}px Manrope,Arial,sans-serif`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle=color;ctx.fillText(text,x,y)}
+// DEMO ONLY. Replace this function with the concept-specific composition.
+// Keep captions, camera, letter positions, masks and geometry derived from t.
+function drawFilm(t){
+  const beat=60/FILM.bpm,p=t/FILM.duration,section=Math.min(4,Math.floor(p*5)),local=(p*5)%1;
+  const zoom=Math.pow(1.04,p*5);ctx.translate(W/2,H/2);ctx.scale(zoom,zoom);ctx.translate(-W/2,-H/2);
+  const labels=['A mark.','An idea.','A shape.','A system.','In motion.'];
+  const reveal=expo(local/.25);ctx.save();ctx.beginPath();ctx.rect(160,150,1600,190);ctx.clip();type(labels[section],W/2,240+160*(1-reveal),128);ctx.restore();
+  const shape=spring((t%beat)*.55),width=mix(130,590,expo(p)),height=mix(130,190,expo(p)),x=W/2+Math.sin(t*.7)*100,y=650;
+  ctx.save();ctx.translate(x,y);ctx.rotate(section===2?mix(0,Math.PI/2,expo(local)):0);roundBox(-width/2,-height/2,width,height,Math.min(height/2,32+40*shape),FILM.accent);ctx.restore();
+  // A beat changes a visible relationship without random particles or fake numbers.
+  const count=Math.min(5,Math.floor(t/beat)%6);for(let i=0;i<count;i++)roundBox(745+i*90,835,60,8,4,FILM.ink);
+}
+window.seek=function(t){t=clamp(Number(t)||0,0,FILM.duration);ctx.setTransform(1,0,0,1,0,0);ctx.globalAlpha=1;ctx.filter='none';ctx.fillStyle=FILM.background;ctx.fillRect(0,0,W,H);ctx.save();drawFilm(t);ctx.restore();return t};
+window.filmConfig=FILM;
+window.renderSoundtrack=async function(){
+  const rate=48000,length=Math.ceil(FILM.duration*rate),audio=new OfflineAudioContext(2,length,rate),master=audio.createGain();master.gain.value=.6;master.connect(audio.destination);
+  function tone(at,freq,duration,gain,fall=0){if(at<0||at>=FILM.duration)return;const end=Math.min(FILM.duration,at+duration),osc=audio.createOscillator(),env=audio.createGain();osc.frequency.setValueAtTime(freq,at);if(fall)osc.frequency.exponentialRampToValueAtTime(fall,Math.min(end,at+.12));env.gain.setValueAtTime(.00001,at);env.gain.linearRampToValueAtTime(gain,Math.min(end,at+.003));env.gain.exponentialRampToValueAtTime(.00001,end);osc.connect(env);env.connect(master);osc.start(at);osc.stop(end)}
+  const beat=60/FILM.bpm;for(let i=0;i*beat<FILM.duration;i++)tone(i*beat,145,.22,.44,44);
+  const changes=FILM.sceneChanges||Array.from({length:5},(_,i)=>i*FILM.duration/5);for(const at of changes){tone(at,440,.18,.14);tone(at,82,.23,.25,38)}
+  if(FILM.riser){const start=Math.max(0,FILM.duration-3),end=Math.max(start+.01,FILM.duration-1),osc=audio.createOscillator(),env=audio.createGain();osc.type='triangle';osc.frequency.setValueAtTime(180,start);osc.frequency.exponentialRampToValueAtTime(1440,end);env.gain.setValueAtTime(.0001,start);env.gain.linearRampToValueAtTime(.08,end);env.gain.linearRampToValueAtTime(.0001,Math.min(FILM.duration,end+.04));osc.connect(env);env.connect(master);osc.start(start);osc.stop(Math.min(FILM.duration,end+.04))}
+  const rendered=await audio.startRendering(),bytes=new Uint8Array(44+length*4),v=new DataView(bytes.buffer);
+  function word(at,s){for(let i=0;i<s.length;i++)v.setUint8(at+i,s.charCodeAt(i))}word(0,'RIFF');v.setUint32(4,bytes.length-8,true);word(8,'WAVEfmt ');v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,2,true);v.setUint32(24,rate,true);v.setUint32(28,rate*4,true);v.setUint16(32,4,true);v.setUint16(34,16,true);word(36,'data');v.setUint32(40,length*4,true);
+  const channels=[rendered.getChannelData(0),rendered.getChannelData(1)];for(let i=0;i<length;i++){const fade=Math.min(1,i/240,(length-1-i)/480);for(let ch=0;ch<2;ch++)v.setInt16(44+(i*2+ch)*2,Math.round(Math.tanh(channels[ch][i])*fade*30000),true)}
+  const chunks=[];for(let i=0;i<bytes.length;i+=32768)chunks.push(String.fromCharCode(...bytes.subarray(i,i+32768)));return btoa(chunks.join(''));
+};
+window.motionFilmReady=document.fonts.ready.then(()=>{window.seek(0);return true});
+</script></body></html>

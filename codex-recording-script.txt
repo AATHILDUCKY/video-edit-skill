@@ -1,0 +1,48 @@
+I EDIT VIDEOS WITH HTML — 25-SECOND RECORDING SCRIPT
+56 words · about 134 words per minute.
+Read conversationally. Pause briefly after “Here’s how.” Follow the scene timings.
+
+CLEAN READ
+I made this reel with HTML. Here’s how. First, I asked Codex to build an HTML template. It animated the visuals, timed the cuts, and added sound effects. Then I added my clip and adjusted the frame. I previewed it, tweaked the timing, and exported the video. Now I can reuse it. New clip, same template.
+
+TIMED READ
+
+00.0–04.0s | HOOK
+I made this reel with HTML. Here’s how.
+Visual: This reel is HTML.
+Sound: Impact → code snap
+
+04.0–08.0s | PROMPT
+First, I asked Codex to build an HTML template.
+Visual: Ask Codex. Describe the edit.
+Sound: Keyboard clicks → run
+
+08.0–09.5s | VISUALS
+It animated the visuals,
+Visual: Animated visuals.
+Sound: Photo pops
+
+09.5–11.0s | CUTS
+timed the cuts,
+Visual: Timed cuts.
+Sound: Edit snap
+
+11.0–12.5s | SOUND
+and added sound effects.
+Visual: Sound effects.
+Sound: Stereo ping
+
+12.5–16.5s | CAMERA
+Then I added my clip and adjusted the frame.
+Visual: Add my clip. Find my frame.
+Sound: Downward whoosh
+
+16.5–21.0s | EXPORT
+I previewed it, tweaked the timing, and exported the video.
+Visual: Preview. Refine. Export.
+Sound: Play click → slider → download
+
+21.0–25.0s | END
+Now I can reuse it. New clip, same template.
+Visual: New clip. Same template.
+Sound: Resolve → logo hold

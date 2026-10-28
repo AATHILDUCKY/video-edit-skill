@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "companions": [
+    {
+      "name": "session-story",
+      "archive": "assets/companions/session-story.zip",
+      "sha256": "3d59f8f3eb5b01d4d78cf9b6e016b510cbdff556378671b807814a4d6d252805",
+      "repository": "https://github.com/heygen-com/hyperframes-community-skills",
+      "revision": "ba7a0bb6d3567d124c51f6074625043bfe0b32eb",
+      "path": "skills/session-story",
+      "upstream_command": "npx skills add heygen-com/hyperframes-community-skills --skill session-story"
+    }
+  ]
+}

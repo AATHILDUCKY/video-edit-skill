@@ -1,0 +1,1 @@
+I made this reel with HTML. Here’s how. First, I asked Codex to build an HTML template. It animated the visuals, timed the cuts, and added sound effects. Then I added my clip and adjusted the frame. I previewed it, tweaked the timing, and exported the video. Now I can reuse it. New clip, same template.

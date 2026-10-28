@@ -1,0 +1,11 @@
+{
+  "sources": {
+    "assets/codex/manrope-normal-500.ttf": "f433e5d333be1128d8ec8a28b8aadd0314d10e14e4105406076666bc830fc15d",
+    "assets/codex/manrope-normal-800.ttf": "b8f802f05b322a7345805f5b89f8bb976604cc719a91530918d5ce3c47160950",
+    "assets/codex/effects.wav": "66feef35d3e19eb1a6888add783bcdae7e70c0fe428e3d14aada823686136373",
+    "assets/codex/rhythm.wav": "648a4129b084f11190e4f22d2b0954e34f9e99de65dec1e5e2a946183c7af279",
+    "assets/codex/keyboard.wav": "fe81861bc766af54e04914cbeb2624e4a02eca29a85253740c4b2a8c8dff6b54",
+    "assets/codex/keyboard-timing.json": "1e1f216ecc937758282ce5f5375625653ba824e8a4a5d186237bede76d866fd4",
+    "assets/codex/audio-plan.json": "8f2d352af906e1115de96b645db97055f52658595ed0260bc9aa5b0d15841021"
+  }
+}

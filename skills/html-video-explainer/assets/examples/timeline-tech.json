@@ -1,0 +1,58 @@
+{
+  "duration": 6,
+  "images": {},
+  "scenes": [
+    {
+      "kind": "security-shot",
+      "preset": "cybersecurity",
+      "start": 0,
+      "end": 1.5,
+      "title": "Secure.",
+      "voice": "Secure.",
+      "audio": [
+        {
+          "at": 0.05,
+          "type": "impact",
+          "gain": 0.2
+        }
+      ]
+    },
+    {
+      "kind": "board-shot",
+      "preset": "arduino",
+      "start": 1.5,
+      "end": 3.5,
+      "title": "Build.",
+      "voice": "Build.",
+      "beats": [
+        {
+          "at": 0.9,
+          "action": "The board LED is fully illuminated."
+        }
+      ],
+      "audio": [
+        {
+          "at": 0.9,
+          "type": "ping",
+          "gain": 0.1
+        }
+      ]
+    },
+    {
+      "kind": "follow-shot",
+      "preset": "follow-tech",
+      "start": 3.5,
+      "end": 6,
+      "title": "More ideas?",
+      "emphasis": "Follow along.",
+      "voice": "Follow for more.",
+      "audio": [
+        {
+          "at": 1.322,
+          "type": "click",
+          "gain": 0.2
+        }
+      ]
+    }
+  ]
+}

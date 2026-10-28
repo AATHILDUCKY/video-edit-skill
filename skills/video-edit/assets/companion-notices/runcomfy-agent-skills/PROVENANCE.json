@@ -1,0 +1,25 @@
+{
+  "repo": "prime-skills/runcomfy-agent-skills",
+  "url": "https://github.com/prime-skills/runcomfy-agent-skills",
+  "commit": "fca19ae084c2ae4667f5c8affbb99da5103d5832",
+  "skills": [
+    {
+      "name": "runcomfy-video-edit",
+      "path": "video-edit",
+      "upstream_name": "video-edit",
+      "upstream_sha256": "baeb243ddbfee7649be76bbba8a7ad1c7be2ba7d50afd2edc1ac5a36b61e5be4",
+      "adaptation": "Namespaced local integration wrapper; complete upstream instructions in references/upstream.md; original MIT license retained.",
+      "sha256": "35bddad47f1486e4fcd6a2d1c8f21e98b52c4730af14e9888a200eacfadfc7d8",
+      "files": 3
+    },
+    {
+      "name": "runcomfy-cli",
+      "path": "runcomfy-cli",
+      "upstream_name": "runcomfy-cli",
+      "upstream_sha256": "009f9ab1a4152b80118feeb49eb13a07a79612aebf82c1822d49e0ae53a53cc8",
+      "adaptation": "Namespaced local integration wrapper; complete upstream instructions in references/upstream.md; original MIT license retained.",
+      "sha256": "2d99726a1ae9ecc5793f4553f2dc62868544fe53f46160fd7ec665060c29ff5e",
+      "files": 3
+    }
+  ]
+}

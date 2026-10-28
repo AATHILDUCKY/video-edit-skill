@@ -1,0 +1,12 @@
+{
+  "sources": {
+    "assets/codex/manrope-normal-500.ttf": "f433e5d333be1128d8ec8a28b8aadd0314d10e14e4105406076666bc830fc15d",
+    "assets/codex/manrope-normal-800.ttf": "b8f802f05b322a7345805f5b89f8bb976604cc719a91530918d5ce3c47160950",
+    "assets/codex/noto-sans-tamil.ttf": "aa3a9b321f4b0bb2c40203ffbde9af89713227866e0e13f76e5b9eeea727cf88",
+    "assets/codex/effects.wav": "e1ec10bd343acd7b60eae1ba10bef96f6e445067109b415849a730e3951a858a",
+    "assets/codex/rhythm.wav": "70cc72825fcb82185dcf6a4d40ba65d5ac37904f6b581d8d8fbba0ed1d55ab13",
+    "assets/codex/keyboard.wav": "87d8420ddaf7d56d3f5068c6a74362451fc2859197445490d15e7b3d456fa22e",
+    "assets/codex/keyboard-timing.json": "2b18f4c62674549eb594ba6dc5f5f057174f6c18875cee9b94dbdfb5df72f403",
+    "assets/codex/audio-plan.json": "60a234ba50e09f34de763cbcfba6918ef686c33fc1320d270b0b7c9365f1d356"
+  }
+}

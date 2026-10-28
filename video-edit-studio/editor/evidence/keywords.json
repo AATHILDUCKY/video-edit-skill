@@ -1,0 +1,145 @@
+[
+  {
+    "term": "உங்கள்",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 0.92,
+        "source_end": 1.23,
+        "precision": "word",
+        "segment_id": "segment-0000",
+        "context": "என் கதை உங்கள் பயணம்"
+      }
+    ]
+  },
+  {
+    "term": "பயணம்",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 1.29,
+        "source_end": 1.6,
+        "precision": "word",
+        "segment_id": "segment-0000",
+        "context": "என் கதை உங்கள் பயணம்"
+      }
+    ]
+  },
+  {
+    "term": "கற்ற",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 2.55,
+        "source_end": 2.86,
+        "precision": "word",
+        "segment_id": "segment-0001",
+        "context": "நான் கற்ற ஒரு விஷயம்"
+      }
+    ]
+  },
+  {
+    "term": "விஷயம்",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 3.29,
+        "source_end": 3.6,
+        "precision": "word",
+        "segment_id": "segment-0001",
+        "context": "நான் கற்ற ஒரு விஷயம்"
+      }
+    ]
+  },
+  {
+    "term": "புதிய",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 4.18,
+        "source_end": 4.49,
+        "precision": "word",
+        "segment_id": "segment-0002",
+        "context": "புதிய technology ஒரு அனுபவம்"
+      }
+    ]
+  },
+  {
+    "term": "technology",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 4.55,
+        "source_end": 4.86,
+        "precision": "word",
+        "segment_id": "segment-0002",
+        "context": "புதிய technology ஒரு அனுபவம்"
+      }
+    ]
+  },
+  {
+    "term": "அனுபவம்",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 5.29,
+        "source_end": 5.6,
+        "precision": "word",
+        "segment_id": "segment-0002",
+        "context": "புதிய technology ஒரு அனுபவம்"
+      }
+    ]
+  },
+  {
+    "term": "சின்ன",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 6.18,
+        "source_end": 6.49,
+        "precision": "word",
+        "segment_id": "segment-0003",
+        "context": "சின்ன மாற்றம் பெரிய வளர்ச்சி"
+      }
+    ]
+  },
+  {
+    "term": "மாற்றம்",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 6.55,
+        "source_end": 6.86,
+        "precision": "word",
+        "segment_id": "segment-0003",
+        "context": "சின்ன மாற்றம் பெரிய வளர்ச்சி"
+      }
+    ]
+  },
+  {
+    "term": "பெரிய",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 6.92,
+        "source_end": 7.23,
+        "precision": "word",
+        "segment_id": "segment-0003",
+        "context": "சின்ன மாற்றம் பெரிய வளர்ச்சி"
+      }
+    ]
+  },
+  {
+    "term": "வளர்ச்சி",
+    "count": 1,
+    "occurrences": [
+      {
+        "source_start": 7.29,
+        "source_end": 7.6,
+        "precision": "word",
+        "segment_id": "segment-0003",
+        "context": "சின்ன மாற்றம் பெரிய வளர்ச்சி"
+      }
+    ]
+  }
+]

@@ -1,0 +1,5 @@
+# Local ASR + structured media decoding + procedural sound generation.
+faster-whisper>=1.1,<2
+av>=13,<17  # Newer PyAV removes metadata_errors used by faster-whisper 1.2.1.
+numpy>=1.26,<3
+Pillow>=10,<14

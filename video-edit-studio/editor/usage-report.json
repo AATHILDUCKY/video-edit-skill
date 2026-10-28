@@ -1,0 +1,10 @@
+{
+  "status": "unavailable",
+  "source": "unavailable",
+  "input_tokens": null,
+  "output_tokens": null,
+  "cached_input_tokens": null,
+  "total_tokens": null,
+  "local_asr_llm_api_tokens": 0,
+  "note": "Local ASR and FFmpeg do not call an LLM API. Agent tokens require host telemetry scoped to this edit; unavailable is not zero."
+}

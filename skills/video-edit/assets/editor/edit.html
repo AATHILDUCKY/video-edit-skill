@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#e9edeb">
+  <meta name="description" content="Speech-timed video editor">
+  <title>Editable HTML video — editor</title>
+  <link rel="stylesheet" href="assets/codex/fonts.css">
+  <style>
+    :root{color-scheme:light;--accent:#D76A4E;--ink:#171c1b;--paper:#e9edeb}
+    *{box-sizing:border-box}body{margin:0;min-height:100dvh;background:var(--paper);color:var(--ink);font:500 12px Manrope,Arial,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:wait}button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:2px solid #a94b34;outline-offset:4px}
+    .screen{height:100dvh;min-height:470px;padding:18px 14px 116px;display:grid;place-items:center}.film{position:relative;height:100%;aspect-ratio:9/16;max-width:100%;background:#fff;box-shadow:0 12px 55px #17251a12;overflow:hidden}canvas{width:100%;height:100%;display:block;object-fit:contain}.drop-target{position:absolute;inset:50% 0 0;border:0;background:none;color:transparent;width:100%;cursor:copy}.drop-target[hidden]{display:none}.drop-target:focus-visible{outline-offset:-7px}
+    .loading{position:absolute;inset:0;background:#fff;display:grid;place-content:center;gap:16px;text-align:center;color:#737b76;transition:opacity .2s}.loading img{width:50px;margin:auto}.loading.done{opacity:0;pointer-events:none}
+    .transport{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translateX(-50%);width:min(650px,calc(100% - 24px));padding:12px 15px 9px;border:1px solid #d8dfdb;background:#fffffff2;border-radius:14px;box-shadow:0 8px 30px #1d322508;z-index:5;backdrop-filter:blur(12px)}.transport-row{display:flex;align-items:center;gap:10px}.icon-button{flex:0 0 29px;width:29px;height:29px;display:grid;place-items:center;padding:4px;border:0;border-radius:6px;background:none;color:var(--ink)}.icon-button:hover{background:#f7efec}.icon-button svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.icon-button .solid{fill:currentColor;stroke:none}.title{font-size:11px;white-space:nowrap}.time{margin-left:auto;font-size:10px;font-variant-numeric:tabular-nums;color:#79817c;white-space:nowrap}.template-btn,.export{border:1px solid #dfe5e1;border-radius:7px;background:white;padding:8px 11px;white-space:nowrap;font-size:11px;color:var(--ink)}.template-btn:hover{background:#fbefea}.export{background:var(--ink);color:var(--accent);border-color:var(--ink)}.export:hover{background:#5c3930}.cancel{display:none;border:0;background:none;color:#b34437;font-size:10px;padding:4px}
+    .seek{appearance:none;width:100%;display:block;height:14px;margin:7px 0 0;background:transparent;cursor:pointer;accent-color:var(--accent)}.seek::-webkit-slider-runnable-track{height:3px;border-radius:3px;background:linear-gradient(to right,var(--accent) var(--progress,0%),#e2e8e4 var(--progress,0%))}.seek::-webkit-slider-thumb{appearance:none;width:9px;height:9px;border-radius:50%;background:var(--accent);margin-top:-3px}.seek::-moz-range-track{height:3px;background:#e2e8e4}.seek::-moz-range-progress{height:3px;background:var(--accent)}.seek::-moz-range-thumb{width:9px;height:9px;border:0;background:var(--accent)}
+    .status{position:fixed;bottom:112px;left:50%;transform:translateX(-50%);max-width:90vw;padding:9px 13px;border-radius:8px;background:#17251af0;color:#fff;font-size:11px;z-index:9;text-align:center}.status:empty{display:none}
+    dialog{width:min(560px,calc(100% - 28px));max-height:86dvh;border:1px solid #dce4df;border-radius:18px;padding:24px;color:var(--ink);box-shadow:0 25px 110px #142b2030;background:#fff}dialog::backdrop{background:#15271e45;backdrop-filter:blur(6px)}.dialog-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.dialog-head h1{font-size:20px;letter-spacing:-.7px;margin:0}.tabs{display:flex;gap:4px;border-bottom:1px solid #e6ebe7;padding-bottom:10px;margin-bottom:18px}.tab{flex:1;border:0;padding:9px;border-radius:7px;background:none;color:#778078}.tab[aria-selected=true]{background:#fbefea;color:#753e30}.panel[hidden]{display:none}.help{font-size:12px;line-height:1.7;color:#778078;margin:0 0 16px}.upload{display:block;text-align:center;border:1px dashed #a8beb0;border-radius:10px;background:#f7faf8;padding:23px;cursor:pointer;line-height:1.8}.upload strong{display:block}.upload small{color:#778078}.file-name{font-size:11px;color:#68776d;overflow-wrap:anywhere;margin:9px 0}.option{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid #eef2ef}.option input[type=checkbox]{accent-color:#b9563e}.option input[type=range]{width:150px;accent-color:#b9563e}.option input[type=number]{width:85px}.field{display:block;margin:14px 0;color:#5c6b61;font-size:11px}.field input:not([type=color]),.field textarea,.option input[type=number]{display:block;width:100%;border:1px solid #dce5df;border-radius:7px;padding:10px;color:var(--ink);background:#fbfdfb;margin-top:6px;resize:vertical}.field input[type=color]{display:block;width:50px;height:32px;margin-top:7px;border:0;padding:0;background:none}.option input[type=number]{width:88px;margin:0}.script-head{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:18px}.secondary{border:1px solid #dce5df;border-radius:7px;padding:8px 11px;background:#fff;color:#754d42;font-size:11px}.script-scene{border:1px solid #e3ebe6;border-radius:9px;padding:12px;margin-top:9px}.scene-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;gap:12px}.scene-heading button{border:0;background:#fbefea;color:#a24f3a;padding:5px 8px;border-radius:5px;font-size:10px;white-space:nowrap}.scene-heading strong{font-size:11px}.script-scene .field{margin:8px 0}.cue{font-size:10px;color:#93a097;margin-top:8px}.reset{border:0;background:none;color:#b4533b;padding:12px 0;font-size:11px}.download-link{display:block;text-align:center;margin-top:17px;padding:12px;border-radius:8px;background:var(--ink);color:var(--accent);text-decoration:none}.details{font-size:10px;color:#87958b;text-align:center;margin:14px 0 0}.camera-note{font-size:11px;line-height:1.7;margin-top:15px;color:#6f7e74}
+    .screen:fullscreen{padding:10px;background:#111513}.screen:fullscreen .film{height:100%}.screen:fullscreen~.transport{display:none}
+    @media(max-width:600px){.title{display:none}.transport-row{gap:6px}.icon-button{flex-basis:27px;width:27px}.template-btn,.export{font-size:10px;padding:8px 9px}.time{font-size:9px}.screen{padding:0 0 105px}.film{max-width:100%;box-shadow:none}.transport{padding:10px 11px 7px;bottom:12px}.status{bottom:105px}}
+    .is-recording #restartBtn,.is-recording #soundBtn,.is-recording #fullscreenBtn{display:none}
+    @media(max-width:360px){#fullscreenBtn,#restartBtn{display:none}.transport-row{gap:5px}.template-btn,.export{padding:8px}.time{font-size:9px}}
+    .camera-tools{position:absolute;top:calc(50% + 14px);right:12px;display:flex;gap:6px;z-index:2}.camera-tools[hidden]{display:none}.camera-tools button{display:flex;align-items:center;gap:6px;border:1px solid #ffffff30;background:#171c1be8;color:#fff;font-size:10px;border-radius:7px;padding:8px 10px;box-shadow:0 4px 16px #0002;backdrop-filter:blur(8px)}.camera-tools svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}.is-playing .camera-tools{opacity:0;pointer-events:none}.film:hover .camera-tools,.camera-tools:focus-within{opacity:1;pointer-events:auto}
+    .framing-card{margin:17px 0 7px;border:1px solid #e8dfda;border-radius:13px;overflow:hidden;background:#faf7f5}.framing-card[hidden]{display:none}.framing-head{display:flex;align-items:center;justify-content:space-between;padding:13px 14px;gap:12px}.framing-head strong{font-size:12px}.framing-head span{font-size:10px;color:#9a8277;font-variant-numeric:tabular-nums}.framing-stage{position:relative;aspect-ratio:9/8;background:#171d1a;overflow:hidden}.framing-stage canvas{width:100%;height:100%;object-fit:fill;touch-action:none;cursor:grab;outline-offset:-5px}.framing-stage.is-dragging canvas{cursor:grabbing}.frame-guides{pointer-events:none;position:absolute;inset:0;border:1px solid #ffffff50;background:linear-gradient(to right,transparent 33.15%,#ffffff40 33.2%,#ffffff40 33.4%,transparent 33.45%,transparent 66.5%,#ffffff40 66.55%,#ffffff40 66.75%,transparent 66.8%),linear-gradient(to bottom,transparent 33.15%,#ffffff40 33.2%,#ffffff40 33.4%,transparent 33.45%,transparent 66.5%,#ffffff40 66.55%,#ffffff40 66.75%,transparent 66.8%);opacity:.35}.framing-stage:focus-within .frame-guides,.framing-stage.is-dragging .frame-guides{opacity:1}.frame-safe{pointer-events:none;position:absolute;bottom:8%;left:22%;right:22%;height:12%;display:grid;place-items:center;border:1px dashed #ffffff70;border-radius:6px;color:#ffffffbd;font-size:10px;background:#00000020}.framing-hint{display:flex;align-items:center;justify-content:space-between;padding:11px 14px;color:#8f786d;font-size:10px;gap:10px}.framing-hint button{border:0;background:none;color:#ab5138;padding:0;font-size:10px;white-space:nowrap}.frame-modes{display:flex;gap:3px;background:#f0e8e3;border-radius:7px;padding:3px}.frame-modes button{border:0;background:none;padding:6px 11px;border-radius:5px;font-size:10px;color:#9c8072}.frame-modes button[aria-pressed=true]{background:#fff;color:#753e30;box-shadow:0 1px 4px #49291412}.framing-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:12px}.framing-actions .secondary{font-size:10px}.framing-actions .apply-frame{border:0;background:var(--ink);color:var(--accent);border-radius:8px;padding:10px 15px;font-size:11px}.zoom-readout{font-variant-numeric:tabular-nums;font-size:10px;color:#a24f3a;min-width:34px;text-align:right}.range-label{display:flex;align-items:center;gap:8px}.read-card{background:#fbefea;border:1px solid #f0d4c8;border-radius:12px;padding:17px;margin-bottom:18px}.read-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:11px}.read-head strong{font-size:12px}.read-head span{font-size:10px;color:#a24f3a;white-space:nowrap}.read-card p{font-size:14px;line-height:1.85;letter-spacing:-.15px;margin:0;color:#4d352a}.read-actions{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:10px}.read-actions small{font-size:10px;color:#a5816f}.read-actions .secondary{background:#fff9f6;border-color:#e9cbbc;color:#935239}.narration-guide{margin:6px 0 15px;color:#8b7a6e;font-size:11px;line-height:1.7}
+    .framing-stage{width:min(100%,340px);margin:0 auto}.dialog-head{position:sticky;top:-14px;z-index:6;background:#fff;padding:10px 0}.dialog-head::before{content:"";position:absolute;inset:-30px -24px -5px;background:#fff;z-index:-1}.tabs{position:sticky;top:36px;z-index:5;background:#fff;padding-top:8px}.framing-card{scroll-margin-top:108px}.framing-head .finish-frame{border:0;background:var(--ink);color:var(--accent);border-radius:6px;padding:7px 10px;font-size:10px;white-space:nowrap}
+    @media(max-width:380px){.read-head{align-items:flex-start;flex-direction:column;gap:5px}.read-actions{align-items:flex-start;flex-direction:column}.framing-hint{font-size:9px}.camera-tools{top:calc(50% + 9px);right:8px}.camera-tools button{padding:7px 8px}}
+    @media(prefers-reduced-motion:reduce){.loading{transition:none}}
+    .film{height:min(100%,calc((100vw - 28px)*16/9))}.drop-target{top:var(--split,50%)}.camera-tools{top:calc(var(--split,50%) + 14px)}
+    .split-handle{position:absolute;left:0;right:0;top:var(--split,50%);height:30px;margin-top:-15px;z-index:3;display:flex;justify-content:center;align-items:center;cursor:ns-resize;touch-action:none;outline-offset:-3px}.split-grip{width:40px;height:16px;border:1px solid #ffffff70;border-radius:10px;background:#171c1be8;box-shadow:0 2px 8px #0002;display:grid;place-items:center}.split-grip:after{content:"";display:block;width:17px;height:3px;border-top:1px solid #fff8;border-bottom:1px solid #fff8}.split-handle:focus-visible .split-grip,.split-handle:hover .split-grip{background:var(--accent)}.split-handle .split-tooltip{position:absolute;bottom:28px;border-radius:6px;background:#171c1bf2;color:white;padding:6px 9px;font-size:10px;white-space:nowrap;opacity:0;pointer-events:none}.split-handle:hover .split-tooltip,.split-handle:focus-visible .split-tooltip,.is-resizing .split-tooltip{opacity:1}.is-playing .split-handle{opacity:0;pointer-events:none}.is-recording .split-handle{display:none}
+    .layout-card{border:1px solid #eaded8;border-radius:12px;background:#fcf8f6;padding:15px;margin-bottom:18px}.layout-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}.layout-heading strong{font-size:12px}.layout-heading output{font-size:10px;color:#a24f3a;font-variant-numeric:tabular-nums}.layout-presets{display:flex;gap:6px;margin-bottom:13px}.layout-presets button{flex:1;border:1px solid #e5d8d1;border-radius:7px;background:#fff;padding:9px 5px;color:#8e7161;font-size:10px}.layout-presets button[aria-pressed=true]{border-color:var(--accent);background:#f7e5dc;color:#7d3c29}.layout-card input{display:block;width:100%;accent-color:var(--accent);cursor:ew-resize}.layout-note{font-size:10px;color:#a18c7f;line-height:1.6;margin:10px 0 0}.template-files{display:flex;gap:8px;margin-top:10px}.template-files button{flex:1}.saved-note{font-size:10px;color:#a18c7f;line-height:1.7;margin:10px 0 16px}.preset-section{font-size:11px;margin:0 0 8px;color:#725e50}
+    .film:hover .split-handle,.split-handle:focus-visible{opacity:1;pointer-events:auto}
+    .scene-details{border-top:1px solid #eee0d8;margin-top:17px;padding-top:13px}.scene-details summary{cursor:pointer;color:#895543;font-size:11px;padding:7px 0;list-style-position:inside}.scene-details summary span{float:right;color:#b59b8b;font-size:10px}
+    @media(max-width:600px){.film{height:min(100%,calc(100vw*16/9))}}@media(max-width:380px){.camera-tools{top:calc(var(--split,50%) + 9px)}}
+  </style>
+  <link rel="stylesheet" href="assets/codex/editor.css">
+  <link rel="stylesheet" href="assets/codex/visual-editor.css">
+  <link rel="stylesheet" href="assets/codex/caption-style.css">
+  <link rel="stylesheet" href="assets/codex/studio.css">
+  <link rel="stylesheet" href="assets/codex/platform.css">
+</head>
+<body>
+  <header class="studio-header"><a class="studio-logo" href="#"><img src="assets/codex/clapperboard.svg" alt="">ducky<span>/ studio</span></a><span class="studio-project" id="studioProject">Untitled story</span><div class="studio-header-right"><span class="studio-pill">LOCAL WORKSPACE</span><button id="brandBtn" type="button">Brand kit ↗</button></div></header>
+  <main class="screen" id="screen">
+    <div class="film" id="film">
+      <canvas id="reelCanvas" width="1080" height="1920" role="img" aria-label="Explore tech with ducky.logs — animated explanation with editable captions."></canvas>
+      <div id="platformGuides" class="platform-guides" hidden aria-hidden="true"><div class="platform-top"><i></i><span>Phone / Reels header</span></div><div class="platform-safe"><span>Keep key visuals here</span></div><div class="platform-bottom"><span>Username · description · audio / controls</span></div><div class="platform-right">♡<br>◯<br>↗</div></div>
+      <div class="split-handle" id="splitHandle" tabindex="0" role="slider" aria-label="Top section height" aria-orientation="vertical" aria-valuemin="30" aria-valuemax="70" aria-valuenow="50"><span class="split-tooltip" id="splitTooltip">Motion 50% · Camera 50%</span><span class="split-grip" aria-hidden="true"></span></div>
+      <button class="drop-target" id="cameraTarget" aria-label="Add your video to the bottom section">Add your camera video</button>
+      <div class="camera-tools" id="cameraTools" hidden>
+        <button id="reframeBtn" type="button"><svg viewBox="0 0 20 20"><path d="M5 1v14h14M1 5h14v14M8 8h4v4"/></svg>Reframe</button>
+        <button id="replaceClip" type="button">Replace</button>
+      </div>
+      <div id="captionTransform" class="caption-transform" role="button" tabindex="0" aria-label="Move caption. Arrow keys move; plus and minus resize; Home resets position." hidden><span class="caption-transform-hint">Drag to move · corner to resize</span><button id="captionResizeHandle" class="caption-transform-resize" type="button" aria-label="Resize caption"></button></div>
+      <div class="loading" id="loading"><img src="assets/codex/template-mark.svg" alt=""><span>Preparing your short</span></div>
+    </div>
+  </main>
+  <aside class="caption-editor" id="captionEditor" aria-labelledby="captionEditorTitle">
+    <div class="editor-modes" role="tablist" aria-label="Editor track"><button id="captionMode" type="button" role="tab" aria-controls="captionPane" aria-selected="true">Captions</button><button id="visualMode" type="button" role="tab" aria-controls="visualPane" aria-selected="false">Visuals</button></div>
+    <div id="captionPane" role="tabpanel" aria-labelledby="captionMode">
+    <div class="caption-panel-heading"><div><h1 id="captionEditorTitle">Captions</h1><p>Edit the words. Find the perfect moment.</p></div><button id="addCaption" class="caption-primary" type="button">+ Add</button></div>
+    <div class="caption-panel-tools"><label><input id="captionVisibility" type="checkbox" checked> Show captions</label><button id="downloadSrt" title="SRT keeps text and timing; Save template keeps styling." class="caption-link" type="button">Export SRT ↗</button></div>
+    <div class="caption-list" id="captionList" aria-label="Timed captions"></div>
+    <section class="caption-inspector" aria-labelledby="selectedCaptionTitle">
+      <div class="caption-selection-head"><strong id="selectedCaptionTitle">Selected caption</strong><span id="captionDuration"></span></div>
+      <label class="caption-text-label" for="captionText">Caption text</label><textarea id="captionText" rows="3" maxlength="240" placeholder="Type your caption…"></textarea>
+      <details id="captionAppearance" class="caption-appearance" open>
+        <summary>Size &amp; position</summary>
+        <div class="caption-appearance-body">
+          <div class="caption-style-row"><label for="captionStyleScope">Apply to</label><select id="captionStyleScope"><option value="all">All captions</option><option value="selected">This caption only</option></select></div>
+          <label class="caption-style-field">Text size <span id="captionFontSizeValue" class="caption-style-value">60 px</span><input id="captionFontSize" type="range" min="24" max="120" step="1" value="60" aria-label="Caption font size"></label>
+          <button id="captionMovePreview" class="caption-move-toggle" type="button" aria-pressed="false">Move / resize in preview</button>
+          <div class="caption-placement-presets" role="group" aria-label="Position within bottom caption section"><button type="button" data-caption-position="auto">Auto bottom</button><button type="button" data-caption-position="top">Section top</button><button type="button" data-caption-position="middle">Centre</button><button type="button" data-caption-position="bottom">Bottom</button></div>
+          <label class="caption-style-field">Left / right<input id="captionPositionX" type="range" min="0" max="100" step="1" value="50" aria-label="Caption horizontal position"></label>
+          <label class="caption-style-field">Up / down<input id="captionPositionY" type="range" min="0" max="100" step="1" value="91" aria-label="Caption vertical position"></label>
+          <details class="caption-style-advanced"><summary>Appearance</summary><div>
+            <label class="caption-style-field">Style<select id="captionTheme"><option value="highlight">Word highlight</option><option value="box">Clean box</option><option value="plain">Outlined text</option></select></label>
+            <div class="caption-style-colors"><label>Text<input id="captionTextColor" type="color" value="#ffffff"></label><label>Background<input id="captionBackgroundColor" type="color" value="#0c130f"></label></div>
+            <label class="caption-style-field">Background opacity<input id="captionBackgroundOpacity" type="range" min="0" max="100" step="1" value="92"></label>
+            <label class="caption-style-field">Line width<input id="captionMaxWidth" type="range" min="30" max="95" step="1" value="82"></label>
+          </div></details>
+          <button id="captionResetAppearance" class="caption-move-toggle" type="button">Reset appearance</button>
+          <p class="caption-style-note">Captions stay in the bottom section, above the reserved platform footer. Auto bottom anchors the full box to that section’s lower edge. Save template keeps styling; placement does not change text or timing.</p>
+        </div>
+      </details>
+      <div class="caption-time-inputs"><label>Start <span>seconds</span><input id="captionStart" type="number" min="0" max="25" step="0.05" inputmode="decimal"></label><label>End <span>seconds</span><input id="captionEnd" type="number" min="0" max="25" step="0.05" inputmode="decimal"></label></div>
+      <div class="caption-cursor-actions"><button id="captionStartHere" type="button">Start at cursor</button><button id="captionEndHere" type="button">End at cursor</button></div>
+      <div class="caption-edit-actions"><button id="previewCaption" class="caption-preview" type="button">▶ Preview</button><button id="splitCaption" type="button">Split</button><button id="deleteCaption" type="button" aria-label="Delete selected caption">Delete</button></div>
+      <div class="caption-edit-note" id="captionEditNote" role="status">Select a caption below. Drag its edges to change timing.</div>
+    </section>
+    <div class="caption-panel-footer"><span id="captionSaveState">Saved automatically</span><button id="captionsFromScript" class="caption-link" type="button">Reset transcript captions</button></div>
+    </div>
+    <section id="visualPane" role="tabpanel" aria-labelledby="visualMode" hidden>
+      <div class="visual-heading"><h1>Visuals</h1><button id="visualPreview" class="visual-button" type="button">▶ Preview scene</button></div>
+      <p class="visual-help">Click a visual on the timeline. Move the block or trim its edges to set the moment.</p>
+      <label class="visual-field">Scene<select id="visualScene"></select></label>
+      <div class="visual-card">
+        <div class="visual-two"><label class="visual-field">Start · seconds<input id="visualStart" type="number" step="0.01"></label><label class="visual-field">End · seconds<input id="visualEnd" type="number" step="0.01"></label></div>
+        <div class="visual-row"><button id="visualStartHere" class="visual-button" type="button">Start at playhead</button><button id="visualEndHere" class="visual-button" type="button">End at playhead</button></div>
+        <span id="visualLength" class="visual-help"></span>
+        <p class="visual-help">Neighbours adjust to fill your video. Speech captions keep their measured timing when visual scenes change.</p>
+      </div>
+      <label class="visual-field">Headline<input id="visualTitle" maxlength="50" type="text"></label>
+      <label class="visual-field">Second line<input id="visualSubtitle" maxlength="50" type="text"></label>
+      <div class="visual-card">
+        <div class="visual-two"><label class="visual-field">Composition<select id="studioLayout"><option value="camera">Speaker / full frame</option><option value="split">Motion + speaker</option><option value="motion">Motion / full frame</option><option value="broll">B-roll / full frame</option></select></label><label class="visual-field">B-roll clip<select id="studioBroll"><option value="">None</option></select></label></div>
+        <label class="visual-field">B-roll in · source seconds<input id="studioBrollIn" type="number" min="0" step="0.01" value="0"></label>
+        <label class="option">Keep inserted clip audio<input id="visualVideoAudio" type="checkbox" checked></label>
+        <label class="visual-field">Inserted clip volume<input id="visualVideoVolume" type="range" min="0" max="100" value="100" aria-label="Selected inserted clip volume"></label>
+        <label class="visual-field">Motion labels · one per line<textarea id="studioLabels" rows="3" placeholder="Words from your story"></textarea></label>
+        <label class="visual-field">Illustration<select id="visualPreset"></select></label>
+        <label class="visual-field">Scene accent<input id="visualAccent" type="color" value="#D76A4E"></label>
+        <img id="visualPhoto" class="visual-thumb" alt="Selected scene image" hidden>
+        <div class="visual-row"><button id="visualUpload" class="visual-button primary" type="button">Upload image</button><button id="visualRemoveImage" class="visual-button" type="button">Remove image</button></div>
+        <input id="visualImageFile" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+        <label class="visual-field">Visual size<input id="visualScale" type="range" min="60" max="160" step="1" value="100"></label>
+        <label class="visual-field">Move left / right<input id="visualX" type="range" min="-180" max="180" step="1" value="0"></label>
+        <label class="visual-field">Move up / down<input id="visualY" type="range" min="-140" max="140" step="1" value="0"></label>
+        <button id="visualResetStyle" class="visual-button" type="button">Reset this visual</button>
+      </div>
+      <div class="visual-row"><button id="visualSave" class="visual-button primary" type="button">Save template</button><button id="visualResetTimes" class="visual-button" type="button">Reset visual timing</button></div>
+      <p id="visualMessage" class="visual-message" role="status">Edits save in this browser. Save a template to keep your uploaded images.</p>
+    </section>
+  </aside>
+  <nav class="transport" aria-label="Short playback controls">
+    <div class="transport-row">
+      <button class="icon-button" id="playBtn" aria-label="Pause" disabled></button>
+      <button class="icon-button" id="restartBtn" aria-label="Replay" title="Replay (R)"><svg viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1 7M4 4v6h6"/></svg></button>
+      <span class="title">STORY TIMELINE</span>
+      <span class="time" id="timeLabel">00:00 / 00:25</span>
+      <button class="icon-button" id="soundBtn" aria-label="Mute preview" title="Sound (M)"></button>
+      <button class="template-btn" id="settingsBtn">Template</button>
+      <button class="icon-button" id="fullscreenBtn" aria-label="Full screen" title="Full screen (F)"><svg viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button>
+      <button class="export" id="exportBtn" disabled>Export ↓</button>
+      <button class="cancel" id="cancelBtn">Cancel</button>
+    </div>
+    <input class="seek" id="scrubber" type="range" min="0" max="25" step="0.001" value="0" aria-label="Short timeline">
+    <section class="caption-timeline" id="captionTimeline" aria-label="Video editing timeline">
+      <div class="timeline-toolbar"><div class="timeline-title"><strong>Timeline</strong><span>Drag visuals or captions · trim their edges</span></div><div class="timeline-buttons"><button id="captionUndo" type="button" aria-label="Undo caption edit" title="Undo">↶</button><button id="captionRedo" type="button" aria-label="Redo caption edit" title="Redo">↷</button><span class="timeline-button-divider"></span><button id="timelineZoomOut" type="button" aria-label="Zoom timeline out">−</button><button id="timelineZoomFit" type="button">Fit</button><button id="timelineZoomIn" type="button" aria-label="Zoom timeline in">+</button></div></div>
+      <div class="timeline-scroll" id="timelineScroll"><div class="timeline-content" id="timelineContent">
+        <div class="timeline-row ruler-row"><span class="track-label">Time</span><div class="timeline-ruler" id="timelineRuler" role="slider" tabindex="0" aria-label="Timeline playhead" aria-valuemin="0" aria-valuemax="25" aria-valuenow="0"></div></div>
+        <div class="timeline-row scene-row"><span class="track-label">Visuals</span><div class="scene-lane" id="sceneLane"></div></div>
+        <div class="timeline-row captions-row"><span class="track-label">Captions</span><div class="caption-lane" id="captionLane"></div></div>
+        <div class="timeline-playhead" id="timelinePlayhead" aria-hidden="true"><span></span></div>
+      </div></div>
+    </section>
+  </nav>
+  <div class="status" id="status" role="status" aria-live="polite"></div>
+  <dialog id="settings" aria-labelledby="settingsTitle">
+    <div class="dialog-head"><h1 id="settingsTitle">Make it yours.</h1><button class="icon-button" id="closeSettings" aria-label="Close template settings">✕</button></div>
+    <div class="tabs" role="tablist" aria-label="Template settings">
+      <button class="tab" id="tab-footage" role="tab" aria-selected="true" aria-controls="panel-footage" data-tab="footage">Your footage</button>
+      <button class="tab" id="tab-story" role="tab" aria-selected="false" aria-controls="panel-story" data-tab="story" tabindex="-1">Story + script</button>
+      <button class="tab" id="tab-audio" role="tab" aria-selected="false" aria-controls="panel-audio" data-tab="audio" tabindex="-1">Sound</button>
+    </div>
+    <section class="panel" id="panel-footage" role="tabpanel" aria-labelledby="tab-footage">
+      <div class="layout-card">
+        <div class="layout-heading"><strong>Match your video</strong><output id="durationReadout">17s · preview duration</output></div>
+        <div class="layout-presets" role="group" aria-label="Video duration presets"><button type="button" data-duration="17" aria-pressed="true">17 seconds</button><button type="button" data-duration="25" aria-pressed="false">25 seconds</button><button type="button" data-duration="30" aria-pressed="false">30 seconds</button></div>
+        <label class="option">Custom seconds<input id="totalDuration" type="number" min="0.001" step="0.001" value="17" aria-label="Overall video duration in seconds"></label>
+        <label class="option">Match uploaded video length<input id="autoFitVideo" type="checkbox"></label>
+        <p class="layout-note">This edit uses speech timestamps. To change the recording or total duration, rebuild its cuts and captions.</p>
+      </div>
+      <div class="layout-card"><div class="layout-heading"><strong>Choose your layout.</strong><output id="layoutReadout">Motion 50% · Camera 50%</output></div><div class="layout-presets" role="group" aria-label="Section height presets"><button type="button" data-layout="40" aria-pressed="false">More camera</button><button type="button" data-layout="50" aria-pressed="true">Balanced</button><button type="button" data-layout="60" aria-pressed="false">More visuals</button></div><input id="topHeight" aria-label="Animated top section height" type="range" min="30" max="70" step="1" value="50"><p class="layout-note">Drag the divider in the video, or use this slider. Framing adapts automatically. The motion-height limit keeps the bottom caption section clear of platform controls.</p></div>
+      <p class="help">Upload your clip. The reel matches its length and centres the video automatically. Reframe only if you want a different crop.</p>
+      <label class="upload" for="cameraFile"><strong>Add your camera video</strong><small>Choose or drop MP4 / MOV / WebM · kept on your device</small></label>
+      <input id="cameraFile" type="file" accept="video/*" hidden>
+      <div class="file-name" id="clipName">No clip yet. The bottom section is ready for your video.</div>
+      <div class="framing-card" id="framingCard" hidden>
+        <div class="framing-head"><strong>Choose your frame.</strong><span>Live bottom section preview</span><button id="applyFramingTop" class="finish-frame" type="button">Done ✓</button></div>
+        <div class="framing-stage" id="framingStage">
+          <canvas id="framingCanvas" width="1080" height="960" tabindex="0" role="img" aria-label="Camera framing preview. Drag to reposition, scroll or pinch to zoom, arrow keys to nudge. Use the sliders below as an alternative."></canvas>
+          <div class="frame-guides" aria-hidden="true"></div><div class="frame-safe" aria-hidden="true">Caption area</div>
+        </div>
+        <div class="framing-hint"><span>Drag to move · scroll or pinch to zoom</span><button id="resetFraming" type="button">Reset frame</button></div>
+      </div>
+      <div class="option"><span>Frame style</span><div class="frame-modes" role="group" aria-label="Camera frame style"><button id="fillFrame" type="button" aria-pressed="true">Fill</button><button id="fitFrame" type="button" aria-pressed="false">Fit all</button></div></div>
+      <label class="option">Zoom<span class="range-label"><input id="cameraZoom" aria-label="Camera zoom" type="range" min="100" max="300" value="100"><output class="zoom-readout" id="zoomReadout">100%</output></span></label>
+      <label class="option">Move left / right<input id="cameraX" aria-label="Camera horizontal framing" type="range" min="0" max="100" value="50"></label>
+      <label class="option">Move up / down<input id="cameraPosition" aria-label="Camera vertical framing" type="range" min="0" max="100" value="45"></label>
+      <label class="option">Mirror camera<input id="flipCamera" type="checkbox"></label>
+      <label class="option">Keep original video audio<input id="cameraAudio" type="checkbox" checked></label>
+      <label class="option">Clip starts at (seconds)<input id="clipOffset" type="number" min="0" max="86400" step="0.1" value="0"></label>
+      <label class="option">Loop short clips<input id="loopCamera" type="checkbox" checked></label>
+      <button class="reset" id="removeClip" hidden>Remove camera clip</button>
+      <div class="framing-actions"><button class="secondary" id="centerFraming" type="button">Centre video</button><button class="apply-frame" id="applyFraming" type="button">Done · preview ↗</button></div>
+      <p class="camera-note">Choose the prepared camera-edited.mp4 file. Reframe the video here; keep its measured timeline.</p>
+      <p class="details" id="videoDetails">9:16 · 1080 × 1920 · 17 seconds · 60 fps</p>
+    </section>
+    <section class="panel" id="panel-story" role="tabpanel" aria-labelledby="tab-story" hidden>
+      <p class="help">Visuals follow the recorded story. Edit headings and visual timing here; speech captions remain independent.</p>
+      <div class="read-card"><div class="read-head"><strong>Transcript for this edit.</strong><span id="scriptPace"></span></div><p id="narrationRead"></p><div class="read-actions"><small>Check the words against your recording.</small><button class="secondary" id="copyCleanScript" type="button">Copy clean script</button></div></div>
+      <label class="field">Your name or handle (optional)<input id="creatorName" type="text" maxlength="32" placeholder="@yourname"></label>
+      <label class="field">Color palette<select id="paletteSelect" aria-label="Color palette"></select></label>
+      <label class="field">Accent colour<input id="accentColor" type="color" value="#D76A4E"></label>
+      <label class="field" style="display:none">Prompt shown in the video<textarea id="promptText" maxlength="180" rows="3"></textarea></label>
+      <div class="template-files"><button class="secondary" id="saveTemplate" type="button">Save template ↓</button><button class="secondary" id="loadTemplate" type="button">Load template ↑</button></div><input id="templateFile" type="file" accept="application/json,.json" hidden><p class="saved-note">Edits save automatically in this browser. Save a template to reuse your layout, words, colour, framing, and sound on another reel.</p>
+      <label class="option">Script captions<input id="showCaptions" type="checkbox" checked></label>
+      <details class="scene-details"><summary>Edit individual scenes <span>Timed scenes</span></summary><div class="script-head"><strong>17-second recording script</strong><button class="secondary" id="copyScript">Copy script</button></div>
+      <div id="scriptList"></div>
+      <button class="reset" id="resetTemplate">Reset story and colour</button></details>
+    </section>
+    <section class="panel" id="panel-audio" role="tabpanel" aria-labelledby="tab-audio" hidden>
+      <p class="help">Soft transitions, terminal typing, and a follow click are timed to the edit. Your camera voice stays in front of the quiet rhythm bed.</p>
+      <label class="option">Original video volume<input id="cameraVolume" aria-label="Original video volume" type="range" min="0" max="100" value="100"></label>
+      <label class="option">Inserted videos volume<input id="insertVolume" aria-label="Inserted videos volume" type="range" min="0" max="100" value="100"></label>
+      <label class="option">Sound effects<input id="sfxVolume" aria-label="Sound effects volume" type="range" min="0" max="100" value="60"></label>
+      <label class="option">Keyboard on terminal + code shots<input id="keyboardSound" type="checkbox" checked></label>
+      <label class="option">Rhythm bed<input id="musicVolume" aria-label="Rhythm bed volume" type="range" min="0" max="100" value="12"></label>
+      <label class="option">Loop preview<input id="loopPreview" type="checkbox"></label>
+      <p class="camera-note">Play includes your original audio, inserted clip audio and added sounds. The speaker button mutes preview only; export keeps your selected track volumes.</p>
+    </section>
+  </dialog>
+  <video id="sourceVideo" playsinline preload="auto" hidden></video>
+  <audio id="soundtrack" preload="auto" hidden></audio>
+  <audio id="musictrack" preload="auto" hidden></audio>
+  <audio id="keyboardtrack" preload="auto" hidden></audio>
+  <script src="assets/codex/palettes.js"></script>
+  <script src="assets/codex/template.js"></script>
+  <script src="assets/codex/media.js"></script>
+  <script src="assets/codex/concept.js"></script>
+  <script src="assets/codex/studio-media.js"></script>
+  <script src="assets/codex/platform.js"></script>
+  <script src="assets/codex/short.js"></script>
+  <script src="assets/codex/platform-editor.js"></script>
+  <script src="assets/codex/caption-editor.js"></script>
+  <script src="assets/codex/visual-editor.js"></script>
+  <script src="assets/codex/caption-style.js"></script>
+  <dialog id="brandDialog"><div class="dialog-head"><h1>Your signature.</h1><button class="secondary" id="brandClose" type="button">Done</button></div><p class="help">Keep one visual identity across your stories, experiences and technology reels.</p>
+    <label class="field">Creator handle<input id="brandCreator" maxlength="32"></label>
+    <label class="field">Signature accent<input id="brandAccent" type="color"></label>
+    <label class="field">Motion energy<input id="brandMotion" type="range" min="20" max="140" value="80"></label>
+    <label class="field">Composition for future videos<select id="brandLayout"><option value="camera">Speaker led</option><option value="split">Motion + speaker</option><option value="motion">Motion led</option></select></label>
+    <div class="template-files"><button class="secondary" id="brandSave">Save brand ↓</button><button class="secondary" id="brandLoad">Import brand ↑</button></div><input id="brandInput" type="file" accept=".json,application/json" hidden>
+    <p class="saved-note">Brand files carry your style, caption appearance, framing and sound mix. Each recording keeps its own transcript and cuts.</p>
+    <div class="studio-outro"><strong>Signature outro</strong><span id="brandOutro">insta-follow-2.mp4 · automatic</span></div>
+    <div class="studio-usage"><span>Agent tokens for this edit</span><strong id="studioTokens">Unavailable</strong><small id="studioUsageNote">Measured usage appears when your editing host supplies it.</small></div>
+  </dialog>
+  <script src="assets/codex/usage.js"></script>
+  <script src="assets/codex/studio.js"></script>
+</body>
+</html>

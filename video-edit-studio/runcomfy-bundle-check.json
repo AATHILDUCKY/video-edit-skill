@@ -1,0 +1,11 @@
+{
+  "source_repository": "prime-skills/runcomfy-agent-skills",
+  "commit": "fca19ae084c2ae4667f5c8affbb99da5103d5832",
+  "companions": 36,
+  "total_per_agent": 37,
+  "bundle_rebuild_byte_identical": true,
+  "namespace_and_upstream_preservation": "passed Python regression",
+  "skill_validation": "passed",
+  "runtime_cli_installed_by_bundle": false,
+  "cloud_jobs_submitted": 0
+}

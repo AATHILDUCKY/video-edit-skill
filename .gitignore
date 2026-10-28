@@ -1,0 +1,41 @@
+# Dependencies and local upstream checkouts (skills include offline payloads)
+node_modules/
+/vendor-repos/
+
+# Generated packages, renders, and temporary video work
+dist/
+renders/
+output/
+outputs/
+/work/
+/video-edit-studio/analysis/
+/video-edit-studio/template-source.mp4
+/video-edit-studio/*.png
+*-preview.mp4
+/codex-html-template-*.mp4
+/codex-edit.[mM][oO][vV]
+
+# Python and tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.cache/
+coverage/
+test-results/
+playwright-report/
+*.log
+*.tmp
+*.temp
+
+# Local settings and secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+.aws/
+.codex/
+.agents/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

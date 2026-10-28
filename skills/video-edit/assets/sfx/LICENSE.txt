@@ -1,0 +1,18 @@
+Fieldnotes / Signature SFX
+
+These 18 audio samples and their procedural generator were created for this
+video-edit package. They contain no third-party samples or purchased stock.
+
+To the extent copyright applies, the original audio samples and their generator
+are dedicated to the public domain under CC0 1.0 Universal:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+You may use, modify, mix and redistribute these original sounds, including in
+commercial personal-brand videos. No attribution is required for these samples.
+Their catalogue retains provenance for reproducibility. Other package assets,
+including the creator's outro, retain their own permissions and licenses.
+
+“Premium” describes the intended editorial style. These are original synthesized
+sounds, not samples acquired from a paid premium sound library.
+
+Tactile collection added 2026-10-27: CC0-1.0 Kenney Interface Sounds derivatives. See kenney-originals/License.txt and catalog.json for individual originals, fingerprints and processing. Working WAV conversion does not restore Ogg source detail. https://kenney.nl/assets/interface-sounds

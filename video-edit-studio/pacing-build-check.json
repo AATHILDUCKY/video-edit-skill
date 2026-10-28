@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "fixture": "Authored timings over synthetic tone footage; not an ASR accuracy claim.",
+  "caption_chunks": 3,
+  "all_words_and_timestamps_preserved": true,
+  "build_output": "/tmp/video-edit-pacing-proof-q_yqiee8/project",
+  "caption_chunking": {
+    "max_words": 4,
+    "max_duration": 1.6
+  }
+}

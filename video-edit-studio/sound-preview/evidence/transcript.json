@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "duration": 8.0,
+  "language": "ta",
+  "language_probability": null,
+  "timing_quality": "Authored template fixture; no spoken Tamil recording was supplied",
+  "segments": [
+    {
+      "id": "segment-0000",
+      "start": 0.18,
+      "end": 1.8,
+      "text": "என் கதை உங்கள் பயணம்",
+      "words": [
+        {
+          "start": 0.18,
+          "end": 0.49,
+          "word": "என்",
+          "probability": null
+        },
+        {
+          "start": 0.55,
+          "end": 0.86,
+          "word": "கதை",
+          "probability": null
+        },
+        {
+          "start": 0.92,
+          "end": 1.23,
+          "word": "உங்கள்",
+          "probability": null
+        },
+        {
+          "start": 1.29,
+          "end": 1.6,
+          "word": "பயணம்",
+          "probability": null
+        }
+      ],
+      "timing": "word",
+      "alignment_incomplete": false
+    },
+    {
+      "id": "segment-0001",
+      "start": 2.18,
+      "end": 3.8,
+      "text": "நான் கற்ற ஒரு விஷயம்",
+      "words": [
+        {
+          "start": 2.18,
+          "end": 2.49,
+          "word": "நான்",
+          "probability": null
+        },
+        {
+          "start": 2.55,
+          "end": 2.86,
+          "word": "கற்ற",
+          "probability": null
+        },
+        {
+          "start": 2.92,
+          "end": 3.23,
+          "word": "ஒரு",
+          "probability": null
+        },
+        {
+          "start": 3.29,
+          "end": 3.6,
+          "word": "விஷயம்",
+          "probability": null
+        }
+      ],
+      "timing": "word",
+      "alignment_incomplete": false
+    },
+    {
+      "id": "segment-0002",
+      "start": 4.18,
+      "end": 5.8,
+      "text": "புதிய technology ஒரு அனுபவம்",
+      "words": [
+        {
+          "start": 4.18,
+          "end": 4.49,
+          "word": "புதிய",
+          "probability": null
+        },
+        {
+          "start": 4.55,
+          "end": 4.86,
+          "word": "technology",
+          "probability": null
+        },
+        {
+          "start": 4.92,
+          "end": 5.23,
+          "word": "ஒரு",
+          "probability": null
+        },
+        {
+          "start": 5.29,
+          "end": 5.6,
+          "word": "அனுபவம்",
+          "probability": null
+        }
+      ],
+      "timing": "word",
+      "alignment_incomplete": false
+    },
+    {
+      "id": "segment-0003",
+      "start": 6.18,
+      "end": 7.8,
+      "text": "சின்ன மாற்றம் பெரிய வளர்ச்சி",
+      "words": [
+        {
+          "start": 6.18,
+          "end": 6.49,
+          "word": "சின்ன",
+          "probability": null
+        },
+        {
+          "start": 6.55,
+          "end": 6.86,
+          "word": "மாற்றம்",
+          "probability": null
+        },
+        {
+          "start": 6.92,
+          "end": 7.23,
+          "word": "பெரிய",
+          "probability": null
+        },
+        {
+          "start": 7.29,
+          "end": 7.6,
+          "word": "வளர்ச்சி",
+          "probability": null
+        }
+      ],
+      "timing": "word",
+      "alignment_incomplete": false
+    }
+  ],
+  "text": "என் கதை உங்கள் பயணம் நான் கற்ற ஒரு விஷயம் புதிய technology ஒரு அனுபவம் சின்ன மாற்றம் பெரிய வளர்ச்சி",
+  "source_fps": 30
+}

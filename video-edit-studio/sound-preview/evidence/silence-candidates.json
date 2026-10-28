@@ -1,0 +1,10 @@
+{
+  "method": "energy threshold, not semantic VAD",
+  "threshold_db": -35,
+  "gaps": [
+    {
+      "start": 0.0,
+      "end": 8.0
+    }
+  ]
+}

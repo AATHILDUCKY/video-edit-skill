@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "name": "Ducky / Fieldnotes",
+  "creator": "@ducky.logs",
+  "accent": "#C8F36B",
+  "top_percent": 48,
+  "default_layout": "camera",
+  "language": "ta",
+  "asr_model": "small",
+  "caption_style": {
+    "fontSize": 62,
+    "x": 0.46,
+    "y": 0.79,
+    "maxWidth": 0.78,
+    "theme": "highlight",
+    "textColor": "#FFFFFF",
+    "backgroundColor": "#101714",
+    "backgroundOpacity": 0.88
+  },
+  "sfx_volume": 0.24,
+  "music_volume": 0.025,
+  "keyboard_sound": false,
+  "motion_intensity": 0.8,
+  "outro": {
+    "enabled": true,
+    "file": "insta-follow-2.mp4"
+  },
+  "sound_palette": "fieldnotes-signature"
+}

@@ -1,0 +1,1 @@
+Template demonstration only. Camera-slot footage is generated. Tamil caption strings and their times are authored fixtures, not ASR results. The middle insert is an existing local animation, and the last 2 seconds use the creator's actual insta-follow-2.mp4. No Tamil source recording was supplied for an ASR quality check.

@@ -1,0 +1,263 @@
+{
+  "version": 1,
+  "created": "2026-10-27",
+  "repositories": [
+    {
+      "repo": "remotion-dev/skills",
+      "url": "https://github.com/remotion-dev/skills",
+      "commit": "30d4553ecd46fbc5212fd0ff006ae43af522158b",
+      "skills": [
+        {
+          "name": "remotion-best-practices",
+          "path": "skills/remotion-best-practices",
+          "sha256": "e91b8f38fe3b8761c224a17bfadbaf8901f16844fbdf63da66bca5b5fe7a5807",
+          "files": 144
+        },
+        {
+          "name": "remotion-captions",
+          "path": "skills/remotion-captions",
+          "sha256": "b22c57a9cbb1b3762b086260d90dde8c5a712f80671d1596288b9ea720f5e2b8",
+          "files": 6
+        },
+        {
+          "name": "remotion-create",
+          "path": "skills/remotion-create",
+          "sha256": "828d68789fe38a7d82960fcc0be8e5185756939a616a875e599c17d26059c377",
+          "files": 5
+        },
+        {
+          "name": "remotion-docs",
+          "path": "skills/remotion-docs",
+          "sha256": "3fae3d6428d09ad58c718f5a40ad905955fe6807d0e53c76186eba69ce53a36c",
+          "files": 3
+        },
+        {
+          "name": "remotion-interactivity",
+          "path": "skills/remotion-interactivity",
+          "sha256": "cfe2eb50a099bebb02f4ab560a29206f3278df7d7e82f3b8c3454c5e72ce7a84",
+          "files": 5
+        },
+        {
+          "name": "remotion-maps",
+          "path": "skills/remotion-maps",
+          "sha256": "eb7ed9e129d57b0155f66674d90c24a39afa2054cff61095020003e443583afa",
+          "files": 32
+        },
+        {
+          "name": "remotion-markup",
+          "path": "skills/remotion-markup",
+          "sha256": "5b05da371e3564978f8e0178489608e9919205fcb4c3ec3a265a0f2f54e9dd27",
+          "files": 68
+        },
+        {
+          "name": "remotion-multimedia",
+          "path": "skills/remotion-multimedia",
+          "sha256": "255be2ba44b38f49df5b95fc3ddb3fe09d1ce130958d2f51f97aa3c82a81a91b",
+          "files": 6
+        },
+        {
+          "name": "remotion-render",
+          "path": "skills/remotion-render",
+          "sha256": "db5739cbac8faf9457e886f480384f406ef3ba084d1c53fa09d3d777b84dac4a",
+          "files": 4
+        },
+        {
+          "name": "remotion-saas",
+          "path": "skills/remotion-saas",
+          "sha256": "4d8bae5919b0b97834b351309d42be77f1033cf7db44242243fec77d9c02291d",
+          "files": 6
+        },
+        {
+          "name": "remotion-studio",
+          "path": "skills/remotion-studio",
+          "sha256": "069dde6b2d6e11cc5f90f77b9051109c9ce9c3e118608da09fe1c32d050d02c9",
+          "files": 3
+        },
+        {
+          "name": "remotion-upgrade",
+          "path": "skills/remotion-upgrade",
+          "sha256": "f4fb0dfffb44570daed3d9e7a38b613e23fa6591a4739b702c8c2c0cbd03e5dd",
+          "files": 3
+        }
+      ]
+    },
+    {
+      "repo": "greensock/gsap-skills",
+      "url": "https://github.com/greensock/gsap-skills",
+      "commit": "aed9cfd3277740755f6bfc1155c7aa645403b760",
+      "skills": [
+        {
+          "name": "gsap-core",
+          "path": "skills/gsap-core",
+          "sha256": "e21b6ea38a87db00a2dfcd07dbe4992f64b4e7d5253f20eff9be33325845fcc7",
+          "files": 1
+        },
+        {
+          "name": "gsap-frameworks",
+          "path": "skills/gsap-frameworks",
+          "sha256": "482c6c85fe96f0675a7d7b9f7d23355d6a0234c1be0c5a9cc630127f70de5014",
+          "files": 1
+        },
+        {
+          "name": "gsap-performance",
+          "path": "skills/gsap-performance",
+          "sha256": "6c6972e67a7e6db840fe49fd948baca55099e134dd56222dfa236e4af365b32f",
+          "files": 1
+        },
+        {
+          "name": "gsap-plugins",
+          "path": "skills/gsap-plugins",
+          "sha256": "34794fc80d3b9aa07bb64eff876b24ef58bbf41c314613a93621c75c05486ea3",
+          "files": 1
+        },
+        {
+          "name": "gsap-react",
+          "path": "skills/gsap-react",
+          "sha256": "f999fb66f9b974df639cdf77e813615bb1e2e05e34421f913e020c1cfe8dcb92",
+          "files": 1
+        },
+        {
+          "name": "gsap-scrolltrigger",
+          "path": "skills/gsap-scrolltrigger",
+          "sha256": "6a0b5bc7066f521382b03e23b95019dd469059e486b050a5d489e59acc619f87",
+          "files": 1
+        },
+        {
+          "name": "gsap-timeline",
+          "path": "skills/gsap-timeline",
+          "sha256": "619e1bb92da73c0d3c4612cb008d7edeb5489db44a0d724cd4b6f263e2c73220",
+          "files": 1
+        },
+        {
+          "name": "gsap-utils",
+          "path": "skills/gsap-utils",
+          "sha256": "d30c566bacbf7220bb65e1974d86bdc24ac4f9648edf0809c220c0328a564223",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "cloudai-x/threejs-skills",
+      "url": "https://github.com/cloudai-x/threejs-skills",
+      "commit": "0e181866f095b5f06d005133876e926515390d95",
+      "skills": [
+        {
+          "name": "threejs-animation",
+          "path": "skills/threejs-animation",
+          "sha256": "3498e54a79a86001dacd64636dc71a9f98c6aa3580970bcdb6834dcc8903679b",
+          "files": 1
+        },
+        {
+          "name": "threejs-asset-pipeline",
+          "path": "skills/threejs-asset-pipeline",
+          "sha256": "818f26bfcac29da5a0f98ea782a217d547014442f851511d30cb2345f775b222",
+          "files": 1
+        },
+        {
+          "name": "threejs-fundamentals",
+          "path": "skills/threejs-fundamentals",
+          "sha256": "1d63288cd4cf6bc1bb5f0b32e77394a349adbee9aba99e42fee9f83224ad8c91",
+          "files": 1
+        },
+        {
+          "name": "threejs-geometry",
+          "path": "skills/threejs-geometry",
+          "sha256": "bb02f6fbcf315505c4bf5776a1d164130c3839a02eee097758f5c2f496995880",
+          "files": 1
+        },
+        {
+          "name": "threejs-interaction",
+          "path": "skills/threejs-interaction",
+          "sha256": "015152f895639dd8172f4a597236569e292bb69b306b4ae722cad4c20aff67e8",
+          "files": 1
+        },
+        {
+          "name": "threejs-lighting",
+          "path": "skills/threejs-lighting",
+          "sha256": "1a9b6b96b17be05a2b69a280be7712ed328c37f4a04be44fdcf35133d3dd2a62",
+          "files": 1
+        },
+        {
+          "name": "threejs-loaders",
+          "path": "skills/threejs-loaders",
+          "sha256": "0c0f4842a2c1ae27d404cb2a40cb6baaf3583e7c1e673ad42ad8c5880ce5c471",
+          "files": 1
+        },
+        {
+          "name": "threejs-materials",
+          "path": "skills/threejs-materials",
+          "sha256": "68463da44a9326c5d054df0fa1ee9693d1ddbac06a869b2e6c0f0533f82cb210",
+          "files": 1
+        },
+        {
+          "name": "threejs-performance",
+          "path": "skills/threejs-performance",
+          "sha256": "07eadc00869549618c20ab8d7dcfdccb5235a29ea5b847dda0b0c21a07fbc2d7",
+          "files": 1
+        },
+        {
+          "name": "threejs-postprocessing",
+          "path": "skills/threejs-postprocessing",
+          "sha256": "8681974cd92c837918a9f2a16364a5b8949e0cf455b6dc696a5118a6b3442b8c",
+          "files": 1
+        },
+        {
+          "name": "threejs-react-three-fiber",
+          "path": "skills/threejs-react-three-fiber",
+          "sha256": "9d7cec11688471d989b3f3d9fa709c5257da9f1be33905c02a0533f86bdc55b6",
+          "files": 1
+        },
+        {
+          "name": "threejs-shaders",
+          "path": "skills/threejs-shaders",
+          "sha256": "74452e0b30bebf2ece749156b980fa13d3b32ac18120b104f1aa26635db7a6b9",
+          "files": 1
+        },
+        {
+          "name": "threejs-textures",
+          "path": "skills/threejs-textures",
+          "sha256": "33b3937718b3b3b1b2d48aacb717fd2933f50cc1e8b64b763486eae695a71a3b",
+          "files": 1
+        }
+      ]
+    },
+    {
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "url": "https://github.com/prime-skills/runcomfy-agent-skills",
+      "commit": "fca19ae084c2ae4667f5c8affbb99da5103d5832",
+      "skills": [
+        {
+          "name": "runcomfy-video-edit",
+          "path": "video-edit",
+          "upstream_name": "video-edit",
+          "upstream_sha256": "baeb243ddbfee7649be76bbba8a7ad1c7be2ba7d50afd2edc1ac5a36b61e5be4",
+          "adaptation": "Namespaced local integration wrapper; complete upstream instructions in references/upstream.md; original MIT license retained.",
+          "sha256": "35bddad47f1486e4fcd6a2d1c8f21e98b52c4730af14e9888a200eacfadfc7d8",
+          "files": 3
+        },
+        {
+          "name": "runcomfy-cli",
+          "path": "runcomfy-cli",
+          "upstream_name": "runcomfy-cli",
+          "upstream_sha256": "009f9ab1a4152b80118feeb49eb13a07a79612aebf82c1822d49e0ae53a53cc8",
+          "adaptation": "Namespaced local integration wrapper; complete upstream instructions in references/upstream.md; original MIT license retained.",
+          "sha256": "2d99726a1ae9ecc5793f4553f2dc62868544fe53f46160fd7ec665060c29ff5e",
+          "files": 3
+        }
+      ]
+    }
+  ],
+  "local_companions": [
+    {
+      "name": "video-processing-editing",
+      "url": "https://github.com/erichowens/some_claude_skills",
+      "provenance": "Previously installed Skillfish snapshot; upstream commit not recorded",
+      "sha256": "f501abe8df976fb3ea1ede689500cbb608c866e6fb5e3aa6906de7aaf740105b",
+      "files": 14
+    }
+  ],
+  "payload": {
+    "file": "assets/companion-skills.zip",
+    "sha256": "8af8c55cde35ec9069ba8e54ae39704980d51031686691c42dbb67b336f6da69"
+  }
+}

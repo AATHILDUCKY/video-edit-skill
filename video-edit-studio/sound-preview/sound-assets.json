@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Cursor tap",
+    "author": "Original Fieldnotes procedural sound design",
+    "license": "CC0-1.0",
+    "source_url": "local:video-edit/scripts/design_sound_library.py",
+    "sha256": "fa511d61eae3b4507fbd67ca83edd233379ad01fcb331d22deb334ec9c5084cc",
+    "file": "media/sfx-000.wav",
+    "at": 0.788,
+    "event_at": 0.8,
+    "gain": 0.42,
+    "pre_normalized": true,
+    "asset": "cursor-tap"
+  },
+  {
+    "title": "Silk swipe",
+    "author": "Original Fieldnotes procedural sound design",
+    "license": "CC0-1.0",
+    "source_url": "local:video-edit/scripts/design_sound_library.py",
+    "sha256": "caef8a4f9ffca7ab2d239d3b5a6c5de486331160f7a710de39064b41e29c3cff",
+    "file": "media/sfx-001.wav",
+    "at": 1.72,
+    "event_at": 2.0,
+    "gain": 0.34,
+    "pre_normalized": true,
+    "asset": "silk-swipe"
+  },
+  {
+    "title": "UI confirm",
+    "author": "Original Fieldnotes procedural sound design",
+    "license": "CC0-1.0",
+    "source_url": "local:video-edit/scripts/design_sound_library.py",
+    "sha256": "0e38423bac6513704bc1e03bfa5f2da261f8f1bb53e68bedf3f05070fc4d9924",
+    "file": "media/sfx-002.wav",
+    "at": 4.02,
+    "event_at": 4.1,
+    "gain": 0.25,
+    "pre_normalized": true,
+    "asset": "ui-confirm"
+  },
+  {
+    "title": "Rounded impact",
+    "author": "Original Fieldnotes procedural sound design",
+    "license": "CC0-1.0",
+    "source_url": "local:video-edit/scripts/design_sound_library.py",
+    "sha256": "d02ebafb221dce3cfff1dd45a8aed82825305426ff10082fd0202015c5b471cf",
+    "file": "media/sfx-003.wav",
+    "at": 5.965,
+    "event_at": 6.0,
+    "gain": 0.3,
+    "pre_normalized": true,
+    "asset": "rounded-impact"
+  },
+  {
+    "title": "Shimmer rise",
+    "author": "Original Fieldnotes procedural sound design",
+    "license": "CC0-1.0",
+    "source_url": "local:video-edit/scripts/design_sound_library.py",
+    "sha256": "a821026a46b00c88227c4133b96ba4224999616109366ca7327109e070a37d69",
+    "file": "media/sfx-004.wav",
+    "at": 7.1,
+    "event_at": 7.85,
+    "gain": 0.12,
+    "pre_normalized": true,
+    "asset": "shimmer-rise"
+  }
+]

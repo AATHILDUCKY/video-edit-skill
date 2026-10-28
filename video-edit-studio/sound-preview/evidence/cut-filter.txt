@@ -1,0 +1,6 @@
+[0:v]split=1[vin0];
+[0:a]asplit=1[ain0];
+[vin0]trim=start=0.000000000:end=8.000000000,setpts=PTS-STARTPTS[v0];
+[ain0]atrim=start=0.000000000:end=8.000000000,asetpts=PTS-STARTPTS,afade=t=in:d=0.005,afade=t=out:st=7.995000000:d=0.005[a0];
+[v0][a0]concat=n=1:v=1:a=1[video][speech];
+[speech]loudnorm=I=-16:TP=-1.5:LRA=11,apad,atrim=duration=8.0[audio]

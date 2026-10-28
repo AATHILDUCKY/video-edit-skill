@@ -1,0 +1,11 @@
+{
+  "name": "codex-html-short-template",
+  "private": true,
+  "scripts": {
+    "render": "node scripts/render-video.cjs",
+    "preview:frames": "node scripts/render-video.cjs --preview"
+  },
+  "devDependencies": {
+    "playwright": "1.64.1"
+  }
+}

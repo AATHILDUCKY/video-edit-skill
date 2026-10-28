@@ -1,0 +1,4 @@
+interface:
+  display_name: "HTML Video Explainer"
+  short_description: "Content-led HTML motion films and editable video templates"
+  default_prompt: "Use $html-video-explainer to choose a suitable design and motion language for my content, storyboard it precisely, and build a verified HTML video with appropriate assets and editing controls."

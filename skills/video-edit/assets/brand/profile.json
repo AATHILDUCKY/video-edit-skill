@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "name": "Ducky / Fieldnotes",
+  "creator": "@ducky.logs",
+  "accent": "#C8F36B",
+  "top_percent": 48,
+  "default_layout": "camera",
+  "language": "ta",
+  "asr_model": "small",
+  "caption_style": {
+    "fontSize": 62,
+    "x": 0.47,
+    "y": null,
+    "maxWidth": 0.78,
+    "theme": "highlight",
+    "textColor": "#FFFFFF",
+    "backgroundColor": "#101714",
+    "backgroundOpacity": 0.88
+  },
+  "sfx_volume": 0.32,
+  "music_volume": 0,
+  "keyboard_sound": false,
+  "motion_intensity": 1.0,
+  "outro": {
+    "enabled": true,
+    "file": "insta-follow-2.mp4"
+  },
+  "sound_palette": "fieldnotes-tactile",
+  "camera_volume": 1,
+  "insert_volume": 1,
+  "safe_area": {
+    "preset": "instagram-reels",
+    "top": 0.15625,
+    "bottom": 0.354167,
+    "left": 0.074074,
+    "right": 0.12963
+  },
+  "sfx_duck_db": 6,
+  "caption_chunking": {
+    "max_words": 4,
+    "max_duration": 1.6
+  }
+}

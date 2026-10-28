@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:04,000
+I made this reel with HTML. Here’s how.
+
+2
+00:00:04,000 --> 00:00:08,000
+First, I asked Codex to build an HTML template.
+
+3
+00:00:08,000 --> 00:00:09,500
+It animated the visuals,
+
+4
+00:00:09,500 --> 00:00:11,000
+timed the cuts,
+
+5
+00:00:11,000 --> 00:00:12,500
+and added sound effects.
+
+6
+00:00:12,500 --> 00:00:16,500
+Then I added my clip and adjusted the frame.
+
+7
+00:00:16,500 --> 00:00:21,000
+I previewed it, tweaked the timing, and exported the video.
+
+8
+00:00:21,000 --> 00:00:25,000
+Now I can reuse it. New clip, same template.

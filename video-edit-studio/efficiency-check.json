@@ -1,0 +1,17 @@
+{
+  "entry_words_before": 1962,
+  "entry_words_after": 1135,
+  "context_command_read_only": true,
+  "actual_source_cache_matches": true,
+  "actual_project_source_matches": true,
+  "selected_companions": [
+    "video-processing-editing",
+    "gsap-core",
+    "gsap-timeline"
+  ],
+  "transcript_preview_truncated": false,
+  "new_asr_runs": 0,
+  "new_video_renders": 0,
+  "agent_token_usage": "unavailable",
+  "note": "Word counts describe instruction length; they are not a measured token-consumption or savings estimate."
+}

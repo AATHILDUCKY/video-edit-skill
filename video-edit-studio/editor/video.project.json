@@ -1,0 +1,18 @@
+{
+  "title": "Your story. Your signature. / Template preview",
+  "html": "edit.html",
+  "video": "template-preview.mp4",
+  "camera": "media/camera-edited.mp4",
+  "images": {},
+  "fps": 30,
+  "duration": 10.0,
+  "content_duration": 8.0,
+  "outro": {
+    "file": "media/outro.mp4",
+    "start": 8.0,
+    "duration": 2.0,
+    "sha256": "2bdf4d39bebd5146ec77e6d9610ee5414420a2ce14ada1655dea56b358ae4add"
+  },
+  "is_demo": false,
+  "template_demo": true
+}
